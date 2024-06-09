@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Triangle Identifier</title>
+    </head>
+    <body>
+	<script>
+	    alert('Triangle Identifier');
+
+	    let sideA = +prompt('Side A:');
+	    let sideB = +prompt('Side B:');
+	    let sideC = +prompt('Side C:');
+
+	    document.write('<h1>Triangle Identifier</h1><br>');
+	    document.write('<strong>A: </strong>' + sideA + '<br>');
+	    document.write('<strong>B: </strong>' + sideB + '<br>');
+	    document.write('<strong>C: </strong>' + sideC + '<br>');
+
+	    if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA)
+		document.write('<strong>This triangle does not exist.</strong>');
+	    else if (sideA === sideB && sideB === sideC)
+		document.write('<strong>It is an Equilateral Triangle.</strong>');
+	    else if (sideA === sideB || sideA === sideC || sideB === sideC)
+		document.write('<strong>It is an Isosceles Triangle.</strong>');
+	    else
+		document.write('<strong>It is a Scalene Triangle.</strong>');
+	</script>
+    </body>
+</html>
