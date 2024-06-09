@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Circle Calculator</title>
+    </head>
+    <body>
+	<script>
+	    alert('Circle Calculator - Area and Circumference');
+
+	    let radius = +prompt('Circle radius:');
+	    let area = Math.PI * radius ** 2;
+	    let circumference = 2 * Math.PI * radius;
+	    
+	    document.write('<h1>Circle Calculator - Area and Circumference</h1><br>');
+	    document.write('<strong>Radius: </strong>' + radius + '<br>');
+	    document.write('<strong>Area: </strong>' + area.toFixed(2) + '<br>');
+	    document.write('<strong>Circumference: </strong>' + circumference.toFixed(2));
+	</script>
+    </body>
+</html>

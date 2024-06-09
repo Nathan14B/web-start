@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Number Comparator</title>
+    </head>
+    <body>
+	<script>
+	    alert('Number Comparator');
+
+	    let firstValue = +prompt('Insert a number:');
+	    let secondValue = +prompt('Insert a second number:');
+	    let thirdValue = +prompt('Insert a third number:');
+
+	    document.write('<h1>Number Comparator</h1><br>');
+
+	    if (firstValue >= secondValue) {
+		document.write(firstValue + ' >= ' + secondValue + '<br>');
+
+	    	if (firstValue === secondValue)
+		    document.write(firstValue + ' = ' + secondValue + '<br>');
+	    	else if (firstValue > secondValue)
+		    document.write(firstValue + ' > ' + secondValue + '<br>');
+	    }
+
+	    if (thirdValue != secondValue) {
+		document.write(thirdValue + ' != ' + secondValue + '<br>');
+
+		if (thirdValue < secondValue)
+		    document.write(thirdValue + ' < ' + secondValue);
+	    }
+	</script>
+    </body>
+</html>

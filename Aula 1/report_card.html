@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Report Card</title>
+    </head>
+    <body>
+	<script>
+	    alert('Report Card');
+
+	    let studentName = prompt('Student name:');
+	    let firstGrade = +prompt('First grade:');
+	    let secondGrade = +prompt('Second grade:');
+	    let thirdGrade = +prompt('Third grade:');
+	    let average = (firstGrade + secondGrade + thirdGrade) / 3;
+
+	    document.write('<h1>Report Card</h1><br>');
+	    document.write('<strong>Student:</strong> ' + studentName + '<br>');
+	    document.write('<strong>1° grade:</strong> ' + firstGrade + '<br>');
+	    document.write('<strong>2° grade:</strong> ' + secondGrade + '<br>');
+	    document.write('<strong>3° grade:</strong> ' + thirdGrade + '<br>');
+	    document.write('<strong>Final average:</strong> ' + average.toFixed(2));
+	</script>
+    </body>
+</html>
