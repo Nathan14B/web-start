@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Number Ordenator</title>
+    </head>
+    <body>
+	<script>
+	    alert('Number Ordenator');
+	    let option = +prompt('[1] Increasing order\n[2] Decreasing order\n[3] Biggest in the middle');
+
+	    if (option < 1 || option > 3) {
+		alert('Invalid option.');
+	    } else {
+		let values = [];
+	    	for (count = 0; count <= 2; count++) {
+		    values[count] = +prompt('Insert a ' + (count + 1) + '° number:');
+	    	}
+	    
+	    	let lowerValue = values[0];
+	    	let highestValue = values[0];
+	    	for (count = 1; count <= 2; count++) {
+		    if (values[count] < lowerValue) {
+		        lowerValue = values[count];
+		    }
+
+		    if (values[count] > highestValue) {
+		        highestValue = values[count];
+		    }
+	        }
+
+	        let middleValue;
+	        for (count = 0; count <= 2; count++) {
+		    if (values[count] != lowerValue && values[count] != highestValue) {
+		        middleValue = values[count];
+		    }
+	        }
+
+	        switch(option) {
+		    case 1:
+		        alert(lowerValue + ', ' + middleValue + ', ' + highestValue);
+		        break;
+		    case 2:
+		        alert(highestValue + ', ' + middleValue + ', ' + lowerValue);
+		        break;
+		    case 3:
+		        alert(middleValue + ', ' + highestValue + ', ' + lowerValue);
+		        break;
+	        }
+	    }
+	</script>
+    </body>
+</html>
