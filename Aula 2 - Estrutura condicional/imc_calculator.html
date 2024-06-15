@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IMC Calculator</title>
+    </head>
+    <body>
+	<script>
+	    alert('IMC Calculator');
+	    let height = +prompt('Enter your height(cm):');
+	    let weight = +prompt('Enter your weight(kg):');
+	    let imc = weight / height ** 2;
+
+	    document.write('<h1>IMC Calculator</h1>');
+	    document.write('<strong>Height:</strong> ' + height + '<br>');
+	    document.write('<strong>Weight:</strong> ' + weight + '<br>');
+	    document.write('<strong>IMC:</strong> ' + imc.toFixed(2) + '<br>');
+
+	    if (imc < 16) {
+		document.write('<strong>Severe thinness.</strong>');
+	    } else if (imc < 17) {
+		document.write('<strong>Moderate thinness.</strong>');
+	    } else if (imc < 18.5) {
+		document.write('<strong>Light thinness.</strong>');
+	    } else if (imc < 25) {
+		document.write('<strong>Healthy weight.</strong>');
+	    } else if (imc < 30) {
+		document.write('<strong>Overweight.</strong>');
+	    } else if (imc < 35) {
+		document.write('<strong>Obesity class I.</strong>');
+	    } else if (imc < 40) {
+		document.write('<strong>Obesity class 2 (Severe).</strong>');
+	    } else {
+		document.write('<strong>Obesity class 3 (Morbid).</strong>');
+	    }
+	</script>
+    </body>
+</html>

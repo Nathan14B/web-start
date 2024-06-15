@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Report Card</title>
+    </head>
+    <body>
+	<script>
+	    alert('Report Card');
+
+	    let studentName = prompt('Student name:');
+	    let grades = [];
+	    let average = 0;
+	    for (count = 0; count <= 2; count++) {
+		grades[count] = +prompt((count + 1) + '° grade:');
+		average += grades[count];
+	    }
+	    average /= 3;
+
+
+	    document.write('<h1>Report Card</h1>');
+	    document.write('<strong>Name:</strong> ' + studentName + '<br>');
+	    for (count = 1; count <= 3; count++) {
+		document.write('<strong>' + count + '° grade:</strong> ' + grades[count - 1] + '<br>');
+	    }
+	    document.write('<strong>Average:</strong> ' + average.toFixed(2) + '<br>');
+
+	    if (average >= 7) {
+		document.write('<strong>Approved student.</strong>');
+	    } else if (average >= 5) {
+		document.write('<strong>Needs a retake test.</strong>');
+	    } else {
+		document.write('<strong>Failed student.</strong>');
+	    }
+	</script>
+    </body>
+</html>
