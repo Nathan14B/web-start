@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee Salary Report</title>
+    </head>
+    <body>
+	<script>
+	    let salary = 2000;
+	    let tax = 1.5;
+
+	    document.write('<h1>Employee Salary Report</h1>');
+	    document.write('<strong>2018 salary:</strong> ' + salary + '<br>');
+	    for (year = 2019; year < 2024; year++) {
+		salary += salary * tax / 100;
+		tax *= 2;
+		document.write('<strong>' + year + ' salary:</strong> ' + salary.toFixed(2) + '<br>');
+	    }
+	</script>
+    </body>
+</html>

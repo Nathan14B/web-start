@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cartesian Coordinates</title>
+    </head>
+    <body>
+	<script>
+	    alert('Cartesian Coordinates');
+	    
+	    let x;
+	    let y;
+	    do {
+		x = +prompt('Enter the X coordinate:');
+		y = +prompt('Enter the Y coordinate:');
+
+		if (x > 0 && y > 0)
+		    alert('(' + x + ', ' + y + ') is in the First Quadrant.');
+		else if (x < 0 && y > 0)
+		    alert('(' + x + ', ' + y + ') is in the Second Quadrant.');
+		else if (x < 0 && y < 0)
+		    alert('(' + x + ', ' + y + ') is in the Third Quadrant.');
+		else if (x > 0 && y < 0)
+		    alert('(' + x + ', ' + y + ') is in the Fourth Quadrant.');
+	    } while (x != 0 && y != 0);
+
+	    alert('Program closed.');
+	</script>
+    </body>
+</html>

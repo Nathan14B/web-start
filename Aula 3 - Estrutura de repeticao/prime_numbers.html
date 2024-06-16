@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prime Numbers</title>
+    </head>
+    <body>
+	<script>
+	    alert('Prime Numbers');
+	    let number = +prompt('Enter a number:');
+	    let divisors = 0;
+
+	    for (counter = 2; counter <= number; counter++) {
+		if (number % counter == 0) {
+		    divisors++;
+		}
+	    }
+
+	    if (divisors == 1) {
+		alert(number + ' is a prime number.');
+	    } else {
+		alert(number + ' is not a prime number.');
+	    }
+	</script>
+    </body>
+</html>

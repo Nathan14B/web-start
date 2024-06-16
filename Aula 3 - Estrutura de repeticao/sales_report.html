@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sales Report</title>
+    </head>
+    <body>
+	<script>
+	    alert('Sales Report');
+	    
+	    let productA = 0;
+	    let productB = 0;
+	    let productC = 0;
+	    
+	    let option;
+	    do {
+		let message = '[1] Product A ---------------------------------------------------------- ' + productA
+		+ '\n[2] Product B ---------------------------------------------------------- ' + productB +
+		'\n[3] Product C ---------------------------------------------------------- ' + productC +
+		'\n[4] Exit';
+
+		option = +prompt(message);
+	        switch (option) {
+		    case 1:
+			productA++;
+			break;
+		    case 2:
+			productB++;
+			break;
+		    case 3:
+			productC++;
+			break;
+		    case 4:
+			break;
+		    default:
+			alert('Invalid option.');
+		}
+	    } while (option != 4);
+
+	    alert('Thank you for using the program!');
+	</script>
+    </body>
+</html>
