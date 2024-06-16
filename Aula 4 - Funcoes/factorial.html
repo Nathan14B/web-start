@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Factorial</title>
+    </head>
+    <body>
+	<script>
+	    alert('Factorial');
+	    let number = +prompt('Enter a number:');
+
+	    function calculateFactorial(number) {
+		if (number === 0 || number === 1)
+		    return 1;
+
+		let factorial = number;
+		for (counter = number - 1; counter > 1; counter--) {
+		    factorial *= counter;
+		}
+		return factorial;
+	    }
+
+	    if (number < 0)
+		alert('There is no factorial of negative numbers.');
+	    else
+	        alert(number + '! = ' + calculateFactorial(number));
+	</script>
+    </body>
+</html>

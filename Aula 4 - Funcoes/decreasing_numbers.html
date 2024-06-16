@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Decreasing Numbers</title>
+    </head>
+    <body>
+	<script>
+	    alert('Decreasing Numbers');
+	    let numberOfValues = +prompt('How many values do you want to enter?');
+	    let values = [];
+
+	    for (counter = 1; counter <= numberOfValues; counter++) {
+		values[counter - 1] = +prompt(counter + '° number:');
+	    }
+
+	    function sortInDecreasingOrder(values) {
+		let index;
+		let sortedValues = [];
+		for (i = 0; i + 1 <= values.length; i = 0) {
+		    let highestValue = values[i];
+
+		    for (j = 0; j < values.length; j++) {
+			if (values[j] >= highestValue) {
+			    highestValue = values[j];
+			    index = j;
+		        }
+		    }
+		    values.splice(index, 1);
+
+		    sortedValues.push(highestValue);
+		}
+		return sortedValues;
+	    }
+
+	    document.write('<h1>Decreasing Numbers</h1>');
+	    let text = sortInDecreasingOrder(values).toString();
+	    document.write(text.replaceAll(',', ', '));
+	</script>
+    </body>
+</html>

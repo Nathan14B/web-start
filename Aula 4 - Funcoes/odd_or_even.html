@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Odd or Even</title>
+    </head>
+    <body>
+	<script>
+	    alert('Odd or Even');
+	    let number = +prompt('Enter a number:');
+
+	    function isPositive(number) {
+		if (number > 0)
+		    return true;
+		else
+		    return false;
+	    }
+
+	    function isEven(number) {
+		if (number % 2 == 0)
+		    return true;
+		else
+		    return false;
+	    }
+
+	    if (isPositive(number)) {
+		if (isEven(number))
+		    alert(number + ' is an Even number.');
+		else
+		    alert(number + ' is an Odd number.');
+	    } else {
+		alert(number + ' is not positive.');
+	    }
+	</script>
+    </body>
+</html>

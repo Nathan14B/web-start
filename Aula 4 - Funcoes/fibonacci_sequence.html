@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fibonacci Sequence</title>
+    </head>
+    <body>
+	<script>
+	    alert('Fibonacci Sequence');
+	    let numberOfElements = +prompt('How many elements do you want:');
+
+	    function generateFibonacciSequence(numberOfElements) {
+		let currentElement = 1;
+		let previousElement = 1;
+		let sequence = previousElement + ', ' + currentElement;
+		
+		for (counter = 2; counter < numberOfElements; counter++) {
+		    currentElement += previousElement;
+		    sequence += ', ' + currentElement;
+		    previousElement = currentElement - previousElement;
+		}
+		return sequence;
+	    }
+
+	    document.write('<h1>Fibonacci Sequence</h1>');
+	    document.write(generateFibonacciSequence(numberOfElements));
+	</script>
+    </body>
+</html>

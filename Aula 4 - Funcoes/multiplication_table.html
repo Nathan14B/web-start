@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Multiplication Table</title>
+    </head>
+    <body>
+	<script>
+	    alert('Multiplication Table');
+	    let number = +prompt('Enter a number:');
+
+	    function generateMultiplicationTable(number) {
+		multiplicationTable = '';
+		for (multiplier = 0; multiplier <= 10; multiplier++) {
+		    multiplicationTable += number + ' x ' + multiplier + ' = ' + (number * multiplier) + '<br>';
+		}
+		return multiplicationTable;
+	    }
+
+	    document.write('<h1>Multiplication Table of ' + number + '</h1>');
+	    document.write(generateMultiplicationTable(number));
+	</script>
+    </body>
+</html>
