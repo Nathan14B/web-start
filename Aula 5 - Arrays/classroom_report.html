@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Classroom Report</title>
+    </head>
+    <body>
+	<script>
+	    alert("Classroom Report");
+	    let names = new Array(5);
+	    let grades = new Array(5);
+	    let classroomAverage = 0;
+
+	    for (let i = 0; i < names.length; i++) {
+		names[i] = prompt("Name of the " + (i + 1) + "° student:");
+		grades[i] = new Array(2);
+		for (let j = 0; j < 2; j++) {
+		    grades[i][j] = +prompt("Grade of " + names[i] + "'s " + (j + 1) + "° exam:");
+		}
+		classroomAverage += (grades[i][0] + grades[i][1]) / 2;
+	    }
+	    classroomAverage /= 5;
+
+	    document.write("<h1>Classroom Report</h1>");
+	    document.write("<strong>Classroom average:</strong> " + classroomAverage.toFixed(2) + "<br><br>");
+	    document.write("<h2>Students over the average</h2>");
+	    for (let counter = 0; counter < names.length; counter++) {
+		let studentAverage = (grades[counter][0] + grades[counter][1]) / 2;
+		if (studentAverage > classroomAverage) {
+		    document.write("+--------------------------------------------------+<br>");
+		    document.write("<strong>Student:</strong> " + names[counter] + "<br>");
+		    document.write("<strong>1° grade:</strong> " + grades[counter][0] + "<br>");
+		    document.write("<strong>2° grade:</strong> " + grades[counter][1] + "<br>");
+		    document.write("<strong>Average:</strong> " + studentAverage + "<br>");
+		    document.write("+--------------------------------------------------+<br><br>");
+		}
+	    }
+	</script>
+    </body>
+</html>
