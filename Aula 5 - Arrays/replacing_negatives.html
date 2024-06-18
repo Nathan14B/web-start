@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Replacing Negatives</title>
+    </head>
+    <body>
+	<script>
+	    alert("Replacing Negatives");
+	    let matrix = new Array(3);
+
+	    for (let i = 0; i < matrix.length; i++) {
+		matrix[i] = new Array(4);
+		for (let j = 0; j < matrix[i].length; j++) {
+		    matrix[i][j] = +prompt((j + 1) + "° element of the " + (i + 1) + "° line:");
+		}
+	    }
+
+	    function replaceNegatives(matrix) {
+		for (let i = 0; i < matrix.length; i++) {
+		    for (let j = 0; j < matrix[i].length; j++) {
+			if (matrix[i][j] < 0)
+			    matrix[i][j] = 0;
+		    }
+		}
+		return matrix;
+	    }
+
+	    function formatMatrix(matrix) {
+		let view = '<table border="solid 1px" cellpadding="25 px" width="100 px">';
+		for (let i = 0; i < matrix.length; i++) {
+		    view += '<tr>';
+		    for (let j = 0; j < matrix[i].length; j++) {
+			view += '<td>' + matrix[i][j] + '</td>';
+		    }
+		    view += '</tr>';
+		}
+		view += '</table>';
+		return view;
+	    }
+
+	    document.write("<h1>Replacing Negatives</h1><br>");
+	    document.write("<h2>Original matrix</h2>");
+	    document.write(formatMatrix(matrix) + "<br>");
+	    document.write("<h2>Replaced matrix</h2>");
+	    document.write(formatMatrix(replaceNegatives(matrix)));
+	</script>
+    </body>
+</html>

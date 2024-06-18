@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Matrix Operations</title>
+    </head>
+    <body>
+	<script>
+	    alert("Matrix Operations");
+	    let matrix = new Array(3);
+
+	    for (let i = 0; i < matrix.length; i++) {
+		matrix[i] = new Array(3);
+		for (let j = 0; j < matrix[i].length; j++) {
+		    matrix[i][j] = +prompt((j + 1) + "° element of the " + (i + 1) + "° line:");
+		}
+	    }
+
+	    function sumAllElements(matrix) {
+		let total = 0;
+		for (let i = 0; i < matrix.length; i++) {
+		    for (let j = 0; j < matrix[i].length; j++) {
+			total += matrix[i][j];
+		    }
+		}
+		return total;
+	    }
+
+	    function sumLine(matrix, lineNumber) {
+		let total = 0;
+		for (let i = 0; i < matrix[lineNumber - 1].length; i++) {
+		    total += matrix[lineNumber - 1][i];
+		}
+		return total;
+	    }
+
+	    function sumColumn(matrix, columnNumber) {
+		let total = 0;
+		for (let i = 0; i < matrix.length; i++) {
+		    total += matrix[i][columnNumber - 1];
+		}
+		return total;
+	    }
+
+	    function sumMainDiagonal(matrix) {
+		let total = 0;
+		for (let i = 0; i < matrix.length; i++) {
+		    total += matrix[i][i];
+		}
+		return total;
+	    }
+
+	    alert("Sum of all elements: " + sumAllElements(matrix));
+	    alert("Sum of 3° line elements: " + sumLine(matrix, 3));
+	    alert("Sum of 2° column elements: " + sumColumn(matrix, 2));
+	    alert("Sum of the main diagonal: " + sumMainDiagonal(matrix));
+	</script>
+    </body>
+</html>
