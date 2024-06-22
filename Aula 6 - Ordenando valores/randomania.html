@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RandoMania</title>
+    </head>
+    <body>
+	<script>
+	    function fillArrayWithRandomNumbers(numberOfValues) {
+		let values = new Array(numberOfValues);
+
+		for (let counter = 0; counter < values.length; counter++) {
+		    values[counter] = Math.floor(Math.random() * 1001);
+	        }
+
+		return values;
+	    }
+
+	    function findHighestValue(values) {
+		let highestValue = values[0];
+
+		for (let counter = 1; counter < values.length; counter++) {
+		    if (values[counter] > highestValue)
+		        highestValue = values[counter];
+		}
+
+		return highestValue;
+	    }
+
+	    function findLowestValue(values) {
+		let lowestValue = values[0];
+
+		for (let counter = 1; counter < values.length; counter++) {
+		    if (values[counter] < lowestValue)
+		        lowestValue = values[counter];
+		}
+
+		return lowestValue;
+	    }
+
+	    function arithmeticalMean(values) {
+		let sum = 0;
+
+		for (let counter = 0; counter < values.length; counter++) {
+		    sum += values[counter];
+		}
+		
+		mean = sum / values.length;
+		return mean;
+	    }
+
+	    alert("RandoMania");
+	    let numberOfValues = +prompt("How many random numbers do you want?");
+	    let values = fillArrayWithRandomNumbers(numberOfValues);
+	    alert("Highest: " + findHighestValue(values) + "\nLowest: " + findLowestValue(values) +
+	    "\nAverage: " + arithmeticalMean(values).toFixed(2));
+	</script>
+    </body>
+</html>

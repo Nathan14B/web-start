@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Average Height</title>
+	<script>
+	    let heights = [];
+	    let sexes = [];
+
+	    function submit(form) {
+		heights.push(parseFloat(document.getElementById("height").value));
+		if (document.getElementById("male").checked)
+		    sexes.push(document.getElementById("male").value);
+		else if (document.getElementById("female").checked)
+		    sexes.push(document.getElementById("female").value);
+
+		updateTable(form);
+		clean(form);
+	    }
+
+	    function findGreaterHeight(heights, sex) {
+		if (sex == "male" || sex == "female") {
+		    specificHeights = [];
+
+		    for (let counter = 0; counter < sexes.length; counter++) {
+		        if (sexes[counter] == sex)
+			    specificHeights.push(heights[counter]);
+		    }
+
+		    heights = specificHeights;
+		}
+
+		let greaterHeight = heights[0];
+
+		for (let counter = 1; counter < heights.length; counter++) {
+		    if (heights[counter] > greaterHeight)
+			greaterHeight = heights[counter];
+		}
+
+		return greaterHeight;
+	    }
+
+	    function findShorterHeight(heights, sex) {
+		if (sex == "male" || sex == "female") {
+		    specificHeights = [];
+
+		    for (let counter = 0; counter < sexes.length; counter++) {
+		        if (sexes[counter] == sex)
+			    specificHeights.push(heights[counter]);
+		    }
+
+		    heights = specificHeights;
+		}
+
+		let shorterHeight = heights[0];
+
+		for (let counter = 1; counter < heights.length; counter++) {
+		    if (heights[counter] < shorterHeight)
+			shorterHeight = heights[counter];
+		}
+
+		return shorterHeight;
+	    }
+
+	    function averageHeight(heights, sex) {
+		if (sex == "male" || sex == "female") {
+		    specificHeights = [];
+
+		    for (let counter = 0; counter < sexes.length; counter++) {
+		        if (sexes[counter] == sex)
+			    specificHeights.push(heights[counter]);
+		    }
+
+		    heights = specificHeights;
+		}
+
+		let sum = heights[0];
+
+		for (let counter = 1; counter < heights.length; counter++) {
+		    sum += heights[counter];
+		}
+		average = sum / heights.length;
+
+		return average;
+	    }
+
+	    function updateTable(form) {
+		document.getElementById("total-greater-height").innerHTML = findGreaterHeight(heights).toFixed(2);
+		document.getElementById("total-shorter-height").innerHTML = findShorterHeight(heights).toFixed(2);
+		document.getElementById("total-average-height").innerHTML = averageHeight(heights).toFixed(2);
+		document.getElementById("male-greater-height").innerHTML = findGreaterHeight(heights, "male").toFixed(2);
+		document.getElementById("male-shorter-height").innerHTML = findShorterHeight(heights, "male").toFixed(2);
+		document.getElementById("male-average-height").innerHTML = averageHeight(heights, "male").toFixed(2);
+		document.getElementById("female-greater-height").innerHTML = findGreaterHeight(heights, "female").toFixed(2);
+		document.getElementById("female-shorter-height").innerHTML = findShorterHeight(heights, "female").toFixed(2);
+		document.getElementById("female-average-height").innerHTML = averageHeight(heights, "female").toFixed(2);
+	    }
+
+	    function clean(form) {
+		document.getElementById("height").value = "";
+	    }
+	</script>
+	<style>
+	    td {
+		width: 300px;
+	    }
+	</style>
+    </head>
+    <body>
+	<h1>Average Height</h1> 
+	<br>
+	<form name="heights" action="" method="post">
+	    Height: 
+	    <input id="height" type="text" size="15">
+	    <br><br>
+	    Sex: 
+	    <input id="male" type="radio" name="sex" value="male">
+	    <label for="male">Male</label>
+	    <input id="female" type="radio" name="sex" value="female">
+	    <label for="female">Female</label>
+	    <br><br>
+	</form>
+	<button onClick="submit(heights)">Enter</button>
+	<br><br><br><br>
+	<table>
+	    <thead>
+		<tr>
+		    <td><h3>Total</h3></td>
+		    <td><h3>Male</h3></td>
+		    <td><h3>Female</h3></td>
+	        </tr>
+	    </thead>
+	    <tbody>
+		<tr>
+		    <td>
+		        <strong>Greater Height:</strong>
+		        <p id="total-greater-height" style="display:inline;"></p>
+		    </td>
+		    <td>
+		        <strong>Greater Height:</strong>
+		        <p id="male-greater-height" style="display:inline;"></p>
+		    </td>
+		    <td>
+		        <strong>Greater Height:</strong>
+		        <p id="female-greater-height" style="display:inline;"></p>
+		    </td>
+	        </tr>
+	        <tr>
+		    <td>
+		        <strong>Shorter Height:</strong>
+		        <p id="total-shorter-height" style="display:inline;"></p>
+		    </td>
+		    <td>
+		        <strong>Shorter Height:</strong>
+		        <p id="male-shorter-height" style="display:inline;"></p>
+		    </td>
+		    <td>
+		        <strong>Shorter Height:</strong>
+		        <p id="female-shorter-height" style="display:inline;"></p>
+		    </td>
+	        </tr>
+	        <tr>
+		    <td>
+		        <strong>Average Height:</strong>
+		        <p id="total-average-height" style="display:inline;"></p>
+		    </td>
+		    <td>
+		        <strong>Average Height:</strong>
+		        <p id="male-average-height" style="display:inline;"></p>
+		    </td>
+		    <td>
+		        <strong>Average Height:</strong>
+		        <p id="female-average-height" style="display:inline;"></p>
+		    </td>
+	        </tr>
+	    </tbody>
+	</table>
+    </body>
+</html>
