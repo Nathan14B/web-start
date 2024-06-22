@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Highest and Lowest</title>
+    </head>
+    <body>
+	<script>
+	    alert("Highest and Lowest");
+	    let numberOfValues = +prompt("How many values do you want to enter?");
+	    let value, lowestValue, highestValue;
+
+	    for (let counter = 1; counter <= numberOfValues; counter++) {
+		value = +prompt("Enter the " + counter + "° value:");
+
+		if (counter == 1) {
+		    lowestValue = value;
+		    highestValue = value;
+		} else {
+		    if (value < lowestValue)
+		        lowestValue = value;
+
+		    if (value > highestValue)
+			highestValue = value;
+		}
+	    }
+
+	    alert("Highest: " + highestValue + "\nLowest: " + lowestValue);
+	</script>
+    </body>
+</html>

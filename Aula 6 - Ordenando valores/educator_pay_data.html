@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Educator Pay Data</title>
+    </head>
+    <body>
+	<script>
+	    function getEducatorPayData(numberOfTeachers) {
+		let teachers = new Array(numberOfTeachers);
+	        let lessonTimePayment = new Array(numberOfTeachers);
+	    	let salaries = new Array(numberOfTeachers);
+
+	    	for (let counter = 0; counter < teachers.length; counter++) {
+		    teachers[counter] = prompt((counter + 1) + "° teacher name:");
+
+		    lessonTimePayment[counter] = new Array(2);
+		    lessonTimePayment[counter][0] = +prompt("Number of lesson times of the " + (counter + 1) + "° teacher:");
+		    lessonTimePayment[counter][1] = +prompt("Lesson time price of the " + (counter + 1) + "° teacher:");
+		
+		    salaries[counter] = lessonTimePayment[counter][0] * lessonTimePayment[counter][1];
+	        }
+		
+		let teacherInformation = [[teachers], [lessonTimePayment], [salaries]];
+		return teacherInformation;
+	    }
+
+	    function orderBySalary(teacherInformation) {
+		let orderedInformation = [[],[]];
+		let names = teacherInformation[0];
+		let salaries = teacherInformation[2];
+		
+
+		for (let i = 0; i < salaries[0].length; i = 0) {
+		    let highestValue = salaries[0][i];
+		    let index = i;
+
+		    for (let j = i + 1; j < salaries[0].length; j++) {
+			if (salaries[0][j] > highestValue) {
+			    highestValue = salaries[0][j];
+			    index = j;
+			}
+		    }
+		    orderedInformation[0].push(names[0][index]);
+		    orderedInformation[1].push(highestValue);
+
+		    names[0].splice(index, 1);
+		    salaries[0].splice(index, 1);
+		}
+
+		return orderedInformation;
+	    }
+
+	    alert("Educator Pay Data");
+	    let numberOfTeachers = +prompt("How many teachers do you want to compare?");
+	    let teacherInformation = getEducatorPayData(numberOfTeachers);
+
+	    document.write("<h1>Educator Pay Data</h1><br>");
+	    let orderedInformation = orderBySalary(teacherInformation);
+	    for (let counter = 0; counter < orderedInformation[0].length; counter++) {
+		document.write("+------------------------------+<br>");
+		document.write("<strong>Teacher:</strong> " + orderedInformation[0][counter] + "<br>");
+		document.write("<strong>Salary:</strong> " + orderedInformation[1][counter] + "<br>");
+		document.write("+------------------------------+<br><br>");
+	    }
+	</script>
+    </body>
+</html>
