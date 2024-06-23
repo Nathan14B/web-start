@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Business Report Manager</title>
+	<script>
+	    let products = [[],[],[]];
+
+	    function submit() {
+		products[0].push(document.getElementById("name").value);
+		products[1].push(parseFloat(document.getElementById("purchase-price").value));
+		products[2].push(parseFloat(document.getElementById("selling-price").value));
+
+		updatePage();
+		clean();
+	    }
+
+	    function calculateProfit() {
+		let profits = [];
+
+		for (let counter = 0; counter < products[1].length; counter++) {
+		    let difference = products[2][counter] - products[1][counter];
+		    let profitPercentage = difference * 100 / products[1][counter];
+		    profits.push(profitPercentage);
+		}
+
+		return profits;
+	    }
+
+	    function numberOfProductsByProfitRange(firstPercentage, secondPercentage) {
+		let greaterPercentage;
+		let lowerPercentage;
+
+		if (secondPercentage === undefined) {
+		    lowerPercentage = firstPercentage;
+		} else if (firstPercentage > secondPercentage) {
+		    greaterPercentage = firstPercentage;
+		    lowerPercentage = secondPercentage;
+		} else {
+		    greaterPercentage = secondPercentage;
+		    lowerPercentage = firstPercentage;
+		}
+
+		let profits = calculateProfit(products);
+		let numberOfProducts = 0;
+		for (let counter = 0; counter < profits.length; counter++) {
+		    if (greaterPercentage === undefined && profits[counter] > lowerPercentage)
+			numberOfProducts++;
+		    else if (profits[counter] > lowerPercentage && profits[counter] <= greaterPercentage)
+			numberOfProducts++;
+		}
+
+		return numberOfProducts;
+	    }
+
+	    function calculateTotalPurchaseValue() {
+		let total = 0;
+
+		for (let counter = 0; counter < products[1].length; counter++) {
+		    total += products[1][counter];
+		}
+
+		return total;
+	    }
+
+	    function calculateTotalSalesValue() {
+		let total = 0;
+
+		for (let counter = 0; counter < products[2].length; counter++) {
+		    total += products[2][counter];
+		}
+
+		return total;
+	    }
+
+	    function calculateTotalProfit() {
+		let profits = calculateProfit();
+		let total = 0;
+
+		for (let counter = 0; counter < profits.length; counter++) {
+		    total += profits[counter];
+		}
+
+		return total;
+	    }
+
+	    function updatePage() {
+		document.getElementById("lower-profit").innerHTML = numberOfProductsByProfitRange(0, 10);
+		document.getElementById("medium-profit").innerHTML = numberOfProductsByProfitRange(10, 20);
+		document.getElementById("greater-profit").innerHTML = numberOfProductsByProfitRange(20);
+		document.getElementById("total-purchase").innerHTML = calculateTotalPurchaseValue().toFixed(2);
+		document.getElementById("total-sales").innerHTML = calculateTotalSalesValue().toFixed(2);
+		document.getElementById("total-profit").innerHTML = calculateTotalProfit().toFixed(2) + "%";
+	    }
+
+	    function clean() {
+		document.getElementById("name").value = "";
+		document.getElementById("purchase-price").value = "";
+		document.getElementById("selling-price").value = "";
+	    }
+	</script>
+	<style>
+	    p {
+		display: inline;
+	    }
+	</style>
+    </head>
+    <body>
+	<h1>Business Report Manager</h1> 
+	<br>
+	<form name="productData" action="" method="post">
+	    <label for="name">Name:</label> 
+	    <input id="name" type="text" size="30" required>
+	    <br><br>
+	    <label for="purchase-price">Purchase price:</label> 
+	    <input id="purchase-price" type="number" size="30" min="0" required>
+	    <br><br>
+	    <label for="selling-price">Selling price:</label> 
+	    <input id="selling-price" type="number" size="30" min="0" required>
+	    <br><br>
+	</form>
+	<button onClick="submit()">Enter</button>
+	<br><br><br><br>
+	<strong>Profits up to 10%:</strong> <p id="lower-profit"></p>
+	<br><br>
+	<strong>Profits greater than 10% to 20%:</strong> <p id="medium-profit"></p>
+	<br><br>
+	<strong>Profits greater than 20%:</strong> <p id="greater-profit"></p>
+	<br><br>
+	<strong>Total purchase value:</strong> <p id="total-purchase"></p>
+	<br><br>
+	<strong>Total sales value:</strong> <p id="total-sales"></p>
+	<br><br>
+	<strong>Total profit:</strong> <p id="total-profit"></p>
+    </body>
+</html>
