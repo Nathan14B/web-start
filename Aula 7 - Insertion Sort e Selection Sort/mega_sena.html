@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mega Sena</title>
+    </head>
+    <body>
+	<script>
+	    function draw() {
+		let values = new Array(7);
+		
+		for (let i = 1; i < values.length; i++) {
+		    values[i] = Math.floor(Math.random() * 61);
+
+		    for (let j = 0; j < i; j++) {
+			if (values[j] == values[i] || values[i] == 0) {
+			    i--;
+			    break;
+			}
+		    }
+		}
+
+		return values;
+	    }
+
+	    function sortValuesToIncreasingOrder(values) {
+		for (let i = 2; i < values.length; i++) {
+		    let assistant = values[i];
+		    let j = i - 1;
+		    values[0] = assistant;
+		    while (assistant < values[j]) {
+			values[j + 1] = values[j];
+			j--;
+		    }
+		    values[j + 1] = assistant;
+		}
+		values.splice(0, 1);
+		return values;
+	    }
+
+	    alert("Mega Sena");
+	    alert("The Winning Numbers are:\n\n" + sortValuesToIncreasingOrder(draw()).join("\t"));
+	</script>
+    </body>
+</html>

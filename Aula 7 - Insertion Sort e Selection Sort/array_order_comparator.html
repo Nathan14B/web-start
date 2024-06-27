@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Array Order Comparator</title>
+    </head>
+    <body>
+	<script>
+	    function sortArrayToIncreasingOrder(array) {
+		for (let i = 2; i < array.length; i++) {
+		    let assistant = array[i];
+		    let j = i - 1;
+		    array[0] = assistant;
+		    while (assistant < array[j]) {
+			array[j + 1] = array[j];
+			j--;
+		    }
+		    array[j + 1] = assistant;
+		}
+		array[0] = undefined;
+		return array;
+	    }
+
+	    function sortArrayToDecreasingOrder(array) {
+		for (let i = 2; i < array.length; i++) {
+		    let assistant = array[i];
+		    let j = i - 1;
+		    array[0] = assistant;
+		    while (assistant > array[j]) {
+			array[j + 1] = array[j];
+			j--;
+		    }
+		    array[j + 1] = assistant;
+		}
+		array[0] = undefined;
+		return array;
+	    }
+
+	    alert("Array Order Comparator");
+	    let arraySize = +prompt("How many values do you want to enter?");
+	    let numberArray = new Array(arraySize + 1);
+
+	    for (let counter = 1; counter < numberArray.length; counter++) {
+		numberArray[counter] = +prompt("Enter the " + counter + "° value:");
+	    }
+
+	    alert("Actual order: " + numberArray.join(" ") +
+		  "\nIncreasing order: " + sortArrayToIncreasingOrder(numberArray).join(" ") +
+		  "\nDecreasing order: " + sortArrayToDecreasingOrder(numberArray).join(" "));
+	</script>
+    </body>
+</html>

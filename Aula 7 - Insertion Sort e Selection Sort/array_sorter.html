@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Array Sorter</title>
+    </head>
+    <body>
+	<script>
+	    function sortArray(array) {
+		for (let i = 2; i < array.length; i++) {
+		    let assistant = array[i];
+		    let j = i - 1;
+		    array[0] = assistant;
+		    while (assistant < array[j]) {
+			array[j + 1] = array[j];
+			j--;
+		    }
+		    array[j + 1] = assistant;
+		}
+		array.splice(0, 1);
+		return array;
+	    }
+
+	    alert("Array Sorter");
+	    let arraySize = +prompt("How many values do you want to enter?");
+	    let numberArray = new Array(arraySize + 1);
+
+	    for (let counter = 1; counter < numberArray.length; counter++) {
+		numberArray[counter] = +prompt("Enter the " + counter + "° value:");
+	    }
+
+	    alert(sortArray(numberArray).join());
+	</script>
+    </body>
+</html>
